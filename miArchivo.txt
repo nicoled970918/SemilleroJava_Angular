@@ -1,0 +1,5 @@
+Pasos para subir mi primer archivo a gitHub
+1 git clone mi repo
+2 git init 
+3 git add .
+git commit -m "Mensaje"
