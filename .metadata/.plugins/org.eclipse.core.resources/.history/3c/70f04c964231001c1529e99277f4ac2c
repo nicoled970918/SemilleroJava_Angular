@@ -1,0 +1,29 @@
+package semillero.pruebasUnitarias;
+
+import org.apache.log4j.Logger;
+import org.junit.Assert;
+import org.testng.annotations.Test;
+
+public class OperacionesAritmeticasTest 
+{
+	/* cste q contendrá el log de la clase aritmetica test*/
+	private final static Logger log = Logger.getLogger(OperacionesAritmeticasTest.class);
+	@Test
+	public void validarResultadosSumamaExitoso() 
+	{
+		log.info("inicia ejecucion del metodo validarResultadosSumamaExitoso()");
+		
+		int numero1 = 300;
+		int numero2 = 150;
+		int resultado = 450;
+		
+		//Assert.assertFalse(condition);
+		//Assert.assertTrue(condition);
+		//Assert.assertEquals(expected, actual);
+		//Assert.assertNull(object);
+		//Assert.assertNotNull(object);
+		Assert.assertEquals(resultado, numero1 + numero2);
+		
+		log.info("Finaliza ejecucion del metodo validarResultadosSumamaExitoso()");
+	}
+}

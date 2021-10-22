@@ -1,0 +1,16 @@
+package semillero.pruebasUnitarias;
+
+import org.apache.log4j.Logger;
+
+
+
+public class OperacionesAritmeticasTest 
+{
+	/* cste q contendrá el log de la clase aritmetica test*/
+	private final static Logger log = Logger.getLogger(OperacionesAritmeticasTest.class);
+	
+	public void validarResultadosSumamaExitoso() 
+	{
+		log.info("inicia ejecucion del metodo validarResultadosSumamaExitoso()");
+	}
+}

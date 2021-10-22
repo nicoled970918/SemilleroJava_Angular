@@ -1,0 +1,232 @@
+package semillero.pruebasUnitarias;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.hbt.semillero.dto.ComicDTO;
+import com.hbt.semillero.enums.EstadoEnum;
+import com.hbt.semillero.enums.TematicaEnum;
+
+import junit.framework.Assert;
+
+/**
+ * 
+ * <b>Descripción:<b> Clase que determina las pruebas unitarias para la creación
+ * de Comics. <b>Caso de Uso:<b> hbt semillero
+ * 
+ * @author Nicole
+ * @version
+ */
+public class CreacionComicTest {
+
+	private final static Logger log = Logger.getLogger(CreacionComicTest.class);
+
+	/**
+	 * Atributo que crea la lista de comics
+	 */
+	public ArrayList<ComicDTO> arrayListComicDTO = new ArrayList<>();
+	
+	/**
+	 * Atributo que determina la lista de Comics con estado = Activo
+	 */
+	public ArrayList<ComicDTO> arrayListComicDTOActivos;
+	
+	/**
+	 * Atributo que determina la lista de Comics con estado = Inactivo
+	 */
+	public ArrayList<ComicDTO> arrayListComicDTOInactivos;
+
+	/**
+	 * 
+	 * Metodo encargado de enviar mensaje de inicio de pruebas <b>Caso de Uso</b>
+	 * 
+	 * @author Nicole
+	 *
+	 */
+	@BeforeTest
+	public void inicializar() 
+	{
+		/**
+		 * Primero valido si mi lista a llenar está vacía para comenzar a agregar elementos
+		 */
+		if (arrayListComicDTO.isEmpty()) 
+		{
+			agregarComics();
+		}
+		/**
+		 * Lleno mi lista de activos (arrayListComicDTOActivos) con los comics que tengan estado = activo
+		 */
+		this.arrayListComicDTOActivos = comicsEstadoActivo();
+		/**
+		 * Lleno mi lista de activos (arrayListComicDTOInactivos) con los comics que tengan estado = inactivo
+		 */
+		this.arrayListComicDTOInactivos = comicsEstadoInactivos();
+		/**
+		 * Inicializa el Logger con una config. básica
+		 */
+		BasicConfigurator.configure();
+		
+		log.info(":::::::::INICIAN PRUEBAS UNITARIAS:::::::::");
+	}
+
+	/**
+	 * 
+	 * Metodo encargado deahiora se lo pongo <b>Caso de Uso</b>
+	 * 
+	 * @author Nicole
+	 *
+	 */
+	private ArrayList<ComicDTO> comicsEstadoActivo() 
+	{
+		ArrayList<ComicDTO> lstTemp = new ArrayList<>();
+		for (ComicDTO comicDTO : arrayListComicDTO) 
+		{
+			if (comicDTO.getEstadoEnum() == EstadoEnum.ACTIVO) 
+			{
+				lstTemp.add(comicDTO);
+			}
+		}
+		return lstTemp;
+	}
+
+	/**
+	 * no me lase Metodo encargado de <b>Caso de Uso</b>
+	 * 
+	 * @author Nicole
+	 * 
+	 * @return
+	 */
+	private ArrayList<ComicDTO> comicsEstadoInactivos() 
+	{
+		ArrayList<ComicDTO> lstTemp = new ArrayList<>();
+		for (ComicDTO comicDTO : arrayListComicDTO) 
+		{
+			if (comicDTO.getEstadoEnum() == EstadoEnum.INACTIVO) 
+			{
+				lstTemp.add(comicDTO);
+			}
+
+		}
+		return lstTemp;
+
+	}
+
+	private void agregarComics() 
+	{
+		/**
+		 * Atributo que determina la fecha para la creacion de los comics
+		 */
+		LocalDate localDate = LocalDate.now();
+
+		/**
+		 * Creación de 5 comicDtos con estado = activo para la realización de la prueba unitaria.
+		 */
+		ComicDTO comicDTO1 = new ComicDTO("01", "Hulk", "editorial1", TematicaEnum.BELICO, "coleccion1", 25,
+				new BigDecimal(15000000), "autor1", false, localDate, EstadoEnum.ACTIVO, 1000L);
+		ComicDTO comicDTO2 = new ComicDTO("02", "Capitan America", "editorial2", TematicaEnum.FANTASTICO, "coleccion2", 25,
+				new BigDecimal(15000000), "autor2", false, localDate, EstadoEnum.ACTIVO, 1000L);
+		ComicDTO comicDTO3 = new ComicDTO("03", "Capitana Marvel", "editorial3", TematicaEnum.FANTASTICO, "coleccion3", 25,
+				new BigDecimal(15000000), "autor3", true, localDate, EstadoEnum.ACTIVO, 1000L);
+		ComicDTO comicDTO4 = new ComicDTO("04", "Iron Man", "editorial4", TematicaEnum.HORROR, "coleccion4", 25,
+				new BigDecimal(15000000), "autor4", true, localDate, EstadoEnum.ACTIVO, 1000L);
+		ComicDTO comicDTO5 = new ComicDTO("05", "El hombre araña", "editorial5", TematicaEnum.HISTORICO, "coleccion5", 25,
+				new BigDecimal(15000000), "autor5", false, localDate, EstadoEnum.ACTIVO, 1000L);
+		
+		/**
+		 * Creacion de 5 comicDtos con estado inactivo para la realización de la prueba unitaria.
+		 */
+		ComicDTO comicDTO6 = new ComicDTO("06", "Thor", "editorial6", TematicaEnum.AVENTURAS, "coleccion6", 25,
+				new BigDecimal(15000000), "autor6", false, localDate, EstadoEnum.INACTIVO, 1000L);
+		ComicDTO comicDTO7 = new ComicDTO("07", "AquaMan", "editorial7", TematicaEnum.BELICO, "coleccion7", 25,
+				new BigDecimal(15000000), "autor7", true, localDate, EstadoEnum.INACTIVO, 1000L);
+		ComicDTO comicDTO8 = new ComicDTO("08", "SuperMan", "editorial8", TematicaEnum.CIENCIA_FICCION, "coleccion8", 25,
+				new BigDecimal(15000000), "autor8", true, localDate, EstadoEnum.INACTIVO, 1000L);
+		ComicDTO comicDTO9 = new ComicDTO("09", "BatMan", "editorial9", TematicaEnum.DEPORTIVO, "coleccion9", 25,
+				new BigDecimal(15000000), "autor9", false, localDate, EstadoEnum.INACTIVO, 1000L);
+		ComicDTO comicDTO10 = new ComicDTO("10", "Flash", "editorial10", TematicaEnum.FANTASTICO, "coleccion10",
+				25, new BigDecimal(15000000), "autor10", false, localDate, EstadoEnum.INACTIVO, 1000L);
+
+		/**
+		 * Añadiendo los comics creados anteriormente al arrayList llamado arrayListComicDTO
+		 */
+		arrayListComicDTO.add(comicDTO1);
+		arrayListComicDTO.add(comicDTO2);
+		arrayListComicDTO.add(comicDTO3);
+		arrayListComicDTO.add(comicDTO4);
+		arrayListComicDTO.add(comicDTO5);
+		arrayListComicDTO.add(comicDTO6);
+		arrayListComicDTO.add(comicDTO7);
+		arrayListComicDTO.add(comicDTO8);
+		arrayListComicDTO.add(comicDTO9);
+		arrayListComicDTO.add(comicDTO10);
+	}
+
+	/**
+	 * 
+	 * Metodo encargado de <b>Caso de Uso</b>
+	 * 
+	 * @author Nicole
+	 *
+	 */
+	@Test
+	public void validarActivos() 
+	{
+
+		log.info("Inicia ejecucion del metodo validarActivos()");
+
+		Assert.assertNotNull(arrayListComicDTOActivos);
+		for (ComicDTO comicDTO : arrayListComicDTOActivos) 
+		{
+			if (comicDTO.getEstadoEnum() == EstadoEnum.ACTIVO) 
+			{
+				System.out.println(comicDTO.toString());
+			}
+		}
+
+		log.info("Finaliza la ejecucion del metodo validarActivos()");
+	}
+
+	@Test
+	public void validarInactivos() 
+	{
+
+		log.info("Inicia ejecucion del metodo validarInactivos()");
+		ArrayList<String> lstTemp = new ArrayList<>();
+		
+		Assert.assertNotNull(lstTemp);
+		try {
+			
+			for (ComicDTO comicDTO : arrayListComicDTOInactivos)
+			{
+				if (comicDTO.getEstadoEnum() == EstadoEnum.INACTIVO) 
+				{
+					lstTemp.add(comicDTO.getNombre());
+				}
+			}	
+			
+			throw new Exception("Se genero una excepcion");				
+			
+		} catch (Exception e) 
+		{
+			Assert.assertEquals(e.getMessage(),"Se genero una excepcion");
+			System.out.println("Se ha detectado que de " + arrayListComicDTO.size() + " comics se encontraron que "
+					+ arrayListComicDTOActivos.size() + " se encuentran activos y " + arrayListComicDTOInactivos.size()
+					+ " inactivos. Los comics inactivos son:" + lstTemp.toString());
+		}
+
+		log.info("Finaliza la ejecucion del metodo validarInactivos()");
+	}
+
+	@AfterTest
+	public void finalizaPruebasUnitarias() 
+	{
+		log.info(":::::::::FINALIZA PRUEBAS UNITARIAS:::::::::");
+	}
+}

@@ -1,0 +1,5 @@
+package com.hbt.semillero.enums;
+
+public class TipoVehiculoEnum {
+
+}
