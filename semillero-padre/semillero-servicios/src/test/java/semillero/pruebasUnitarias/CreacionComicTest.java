@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -13,8 +14,6 @@ import org.testng.annotations.Test;
 import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.enums.EstadoEnum;
 import com.hbt.semillero.enums.TematicaEnum;
-
-import junit.framework.Assert;
 
 /**
  * 
@@ -131,29 +130,29 @@ public class CreacionComicTest {
 		/**
 		 * Creación de 5 comicDto con estado = activo para la realización de las pruebas unitarias
 		 */
-		ComicDTO comicDTO1 = new ComicDTO("01", "Hulk", "editorial01", TematicaEnum.BELICO, "coleccion01", 10,
+		ComicDTO comicDTO1 = new ComicDTO(01L, "Hulk", "editorial01", TematicaEnum.BELICO, "coleccion01", 10,
 				new BigDecimal(15000000), "autor01", false, localDate, EstadoEnum.ACTIVO, 100000L);
-		ComicDTO comicDTO2 = new ComicDTO("02", "Capitan America", "editorial02", TematicaEnum.FANTASTICO, "coleccion02", 20,
+		ComicDTO comicDTO2 = new ComicDTO(02L, "Capitan America", "editorial02", TematicaEnum.FANTASTICO, "coleccion02", 20,
 				new BigDecimal(15000000), "autor02", false, localDate, EstadoEnum.ACTIVO, 200000L);
-		ComicDTO comicDTO3 = new ComicDTO("03", "Capitana Marvel", "editorial03", TematicaEnum.FANTASTICO, "coleccion03", 30,
+		ComicDTO comicDTO3 = new ComicDTO(03L, "Capitana Marvel", "editorial03", TematicaEnum.FANTASTICO, "coleccion03", 30,
 				new BigDecimal(15000000), "autor03", true, localDate, EstadoEnum.ACTIVO, 300000L);
-		ComicDTO comicDTO4 = new ComicDTO("04", "Iron Man", "editorial04", TematicaEnum.HORROR, "coleccion04", 40,
+		ComicDTO comicDTO4 = new ComicDTO(04L, "Iron Man", "editorial04", TematicaEnum.HORROR, "coleccion04", 40,
 				new BigDecimal(15000000), "autor04", true, localDate, EstadoEnum.ACTIVO, 400000L);
-		ComicDTO comicDTO5 = new ComicDTO("05", "El hombre araña", "editorial05", TematicaEnum.HISTORICO, "coleccion05", 50,
+		ComicDTO comicDTO5 = new ComicDTO(05L, "El hombre araña", "editorial05", TematicaEnum.HISTORICO, "coleccion05", 50,
 				new BigDecimal(15000000), "autor05", false, localDate, EstadoEnum.ACTIVO, 500000L);
 		
 		/**
 		 * Creacion de 5 comicDto con estado inactivo para la realización de las pruebas unitarias
 		 */
-		ComicDTO comicDTO6 = new ComicDTO("06", "Thor", "editorial06", TematicaEnum.AVENTURAS, "coleccion06", 60,
+		ComicDTO comicDTO6 = new ComicDTO(06L, "Thor", "editorial06", TematicaEnum.AVENTURAS, "coleccion06", 60,
 				new BigDecimal(15000000), "autor06", false, localDate, EstadoEnum.INACTIVO, 600000L);
-		ComicDTO comicDTO7 = new ComicDTO("07", "AquaMan", "editorial07", TematicaEnum.BELICO, "coleccion07", 70,
+		ComicDTO comicDTO7 = new ComicDTO(07L, "AquaMan", "editorial07", TematicaEnum.BELICO, "coleccion07", 70,
 				new BigDecimal(15000000), "autor07", true, localDate, EstadoEnum.INACTIVO, 700000L);
-		ComicDTO comicDTO8 = new ComicDTO("08", "SuperMan", "editorial08", TematicaEnum.CIENCIA_FICCION, "coleccion08", 80,
+		ComicDTO comicDTO8 = new ComicDTO(11L, "SuperMan", "editorial08", TematicaEnum.CIENCIA_FICCION, "coleccion08", 80,
 				new BigDecimal(15000000), "autor08", true, localDate, EstadoEnum.INACTIVO, 800000L);
-		ComicDTO comicDTO9 = new ComicDTO("09", "BatMan", "editorial09", TematicaEnum.DEPORTIVO, "coleccion09", 90,
+		ComicDTO comicDTO9 = new ComicDTO(12L, "BatMan", "editorial09", TematicaEnum.DEPORTIVO, "coleccion09", 90,
 				new BigDecimal(15000000), "autor09", false, localDate, EstadoEnum.INACTIVO, 900000L);
-		ComicDTO comicDTO10 = new ComicDTO("10", "Flash", "editorial10", TematicaEnum.FANTASTICO, "coleccion10", 100, 
+		ComicDTO comicDTO10 = new ComicDTO(10L, "Flash", "editorial10", TematicaEnum.FANTASTICO, "coleccion10", 100, 
 				new BigDecimal(15000000), "autor10", false, localDate, EstadoEnum.INACTIVO, 10000000L);
 
 		/**
